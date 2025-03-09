@@ -108,7 +108,7 @@ This portfolio demonstrates the process of data cleaning and preparation using P
 ## Here are the screenshots showcasing the table transformation process
 ### Here's the screenshot of my output before I started data cleaning (see screenshot)
 ![Image](https://github.com/user-attachments/assets/38ea140c-bb3b-44c1-b2cb-a25601ea8467)
-## Here are the screenshot of the Advanced Editor
+## Here's the screenshot of the Advanced Editor
 ![Image](https://github.com/user-attachments/assets/363e27b5-76d2-4561-8907-6718216a3d45)
 ### Here's the screenshot of my output after I started data cleaning (see screenshot)
 ![Image](https://github.com/user-attachments/assets/dd368a40-ad15-4159-a5dd-3ab372efe33d)
