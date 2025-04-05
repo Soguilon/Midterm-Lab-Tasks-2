@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Midterm Lab Task 2 - Data Cleaning and Preparation using Power Query</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(120deg, #000 30%, #020f1f 70%);
+      color: #00bfff;
+      overflow-x: hidden;
+      animation: bgShift 15s ease-in-out infinite alternate;
+      transition: background 2s ease-in-out;
+    }
+
+    @keyframes bgShift {
+      0% { background-position: left top; }
+      100% { background-position: right bottom; }
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      color: #00bfff;
+      text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+      animation: neonGlow 2s infinite alternate;
+      box-shadow: 0 0 15px #00bfff;
+    }
+
+    section {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease-in-out;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+
+    section:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00bfff;
+    }
+
+    h2 {
+      color: #00bfff;
+      text-shadow: 0 0 5px #00bfff;
+      border-bottom: 2px solid #00bfff;
+      padding-bottom: 5px;
+      animation: glowPulse 2s infinite alternate;
+    }
+
+    .screenshot img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00bfff;
+      animation: floatImage 4s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff; }
+      100% { text-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff; }
+    }
+
+    @keyframes floatImage {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes neonGlow {
+      from { box-shadow: 0 0 10px #00bfff; }
+      to { box-shadow: 0 0 25px #00bfff, 0 0 50px #00bfff; }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .download-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #00bfff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #00bfff;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .download-link:hover {
+      background-color: #0099cc;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00bfff;
+    }
+  </style>
+</head>
+<body>
+  <header>Midterm Lab Task 2 - Data Cleaning and Preparation using Power Query</header>
+
+  <section>
+    <p>This portfolio demonstrates the process of data cleaning and preparation using Power Query. The dataset consists of multiple related tables, where cleaning techniques are applied to improve data quality and consistency before analysis.</p>
+    
+    <p>Download the Excel file: 
+      <a class="download-link" href="https://github.com/user-attachments/files/19111495/Midterm.Lab.Task.2.xlsx" download>Download Excel File</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>Step by Step Process</h2>
+    <p><strong>Step 1:</strong></p>
+    <ul>
+      <li>Download the dataset (Uncleaned_DS_jobs.csv)</li>
+      <li>Open Excel</li>
+      <li>Go to Data → New Query → Open File → Text/CSV</li>
+      <li>Click Load and then Edit using Power Query Editor</li>
+    </ul>
+
+    <p><strong>Step 2:</strong></p>
+    <ul>
+      <li>Right-click the dataset in the Queries pane</li>
+      <li>Select Duplicate</li>
+    </ul>
+
+    <p><strong>Step 3:</strong> Clean Salary Data</p>
+    <ul>
+      <li>Select the Salary Estimate column</li>
+      <li>Go to Transform Menu → Extract → Text Before Delimiter</li>
+      <li>Type "(" and click OK</li>
+      <li>Create two new columns: Min Salary and Max Salary</li>
+      <li>Rename the columns to "Min Sal" and "Max Sal"</li>
+    </ul>
+
+    <p><strong>Step 4:</strong> Add Role Type Column</p>
+    <ul>
+      <li>Go to Add Column Menu → Custom Column</li>
+      <li>Use logic to assign roles based on job titles</li>
+    </ul>
+
+    <p><strong>Step 5:</strong> Split Location Column</p>
+    <ul>
+      <li>Split the Location column by custom rules (e.g., assigning state abbreviations)</li>
+    </ul>
+
+    <p><strong>Step 6:</strong> Split Size Column</p>
+    <ul>
+      <li>Create MinCompanySize and MaxCompanySize columns using the same method as Salary Estimate</li>
+    </ul>
+
+    <p><strong>Step 7:</strong> Handle Negative Values</p>
+    <ul>
+      <li>Filter out invalid values like -1 and 0 from relevant columns</li>
+    </ul>
+
+    <p><strong>Step 8:</strong> Clean Company Names</p>
+    <ul>
+      <li>Remove extra characters or ratings from company names</li>
+    </ul>
+
+    <p><strong>Step 9:</strong> Copy Cleaning Steps as Proof</p>
+    <ul>
+      <li>Go to Home Menu → Click Advanced Editor</li>
+      <li>Copy and save the code in your portfolio</li>
+    </ul>
+
+    <p><strong>Step 10:</strong> Reshape and Group Data</p>
+    <ul>
+      <li>Group by Role Type and Company Size</li>
+      <li>Get average Min and Max Salary</li>
+    </ul>
+
+    <p><strong>Step 11:</strong> Merge State Mapping</p>
+    <ul>
+      <li>Merge data from State Mapping query to get the full state name</li>
+    </ul>
+
+    <p><strong>Step 12:</strong> Group by State</p>
+    <ul>
+      <li>Group by state and get the average Min and Max Salary</li>
+    </ul>
+
+    <p><strong>Step 13:</strong> View Query Dependencies</p>
+    <ul>
+      <li>Check if all queries are correctly linked using View Menu → Dependencies</li>
+    </ul>
+
+    <h2>Screenshots of the Process</h2>
+    <p><strong>Before Data Cleaning:</strong></p>
+    <div class="screenshot">
+      <img src="https://github.com/user-attachments/assets/38ea140c-bb3b-44c1-b2cb-a25601ea8467" alt="Before Data Cleaning">
+    </div>
+
+    <p><strong>Advanced Editor Screenshot:</strong></p>
+    <div class="screenshot">
+      <img src="https://github.com/user-attachments/assets/363e27b5-76d2-4561-8907-6718216a3d45" alt="Advanced Editor">
+    </div>
+
+    <p><strong>After Data Cleaning:</strong></p>
+    <div class="screenshot">
+      <img src="https://github.com/user-attachments/assets/dd368a40-ad15-4159-a5dd-3ab372efe33d" alt="After Data Cleaning">
+    </div>
+
+    <p><strong>Sal By Role Type:</strong></p>
+    <div class="screenshot">
+      <img src="https://github.com/user-attachments/assets/4a2b5298-8a0b-4440-8e83-de4f0810d89d" alt="Sal By Role Type">
+    </div>
+
+    <p><strong>Sal By Role Size:</strong></p>
+    <div class="screenshot">
+      <img src="https://github.com/user-attachments/assets/f193001b-6da3-46fa-aa36-877f20cefc81" alt="Sal By Role Size">
+    </div>
+
+    <p><strong>Sal By State:</strong></p>
+    <div class="screenshot">
+      <img src="https://github.com/user-attachments/assets/d6e69440-32be-4cbf-af2c-5d8a99dfdcbc" alt="Sal By State">
+    </div>
+
+    <p><strong>States Screenshot:</strong></p>
+    <div class="screenshot">
+      <img src="https://github.com/user-attachments/assets/54d62d61-bfcd-40ab-848f-ffb9a7e13f61" alt="States Screenshot">
+    </div>
+    <p><strong>Query Dependencies:</strong></p>
+    <div class="screenshot">
+      <img src="https://github.com/user-attachments/assets/e964092b-b535-4357-86aa-13795196b172" alt="Query Dependencies">
+    </div>
+  </section>
+</body>
+</html>
